@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const artistRoutes = require("./routes/artistsRoutes");
+const fanClubRoutes = require("./routes/fanClubRoutes");
 const helmet = require("helmet");
 const { OAuth2Client } = require('google-auth-library');
 
@@ -118,6 +119,7 @@ const connectDB = async () => {
 
 // Routes
 app.use("/api", artistRoutes);
+app.use("/api", fanClubRoutes);
 
 // Default route
 app.get("/", (req, res) => {
@@ -132,6 +134,7 @@ app.use((err, req, res, next) => {
   } else {
     res.status(500).json({ message: "An unexpected error occurred" });
   }
+  next();
 });
 
 // Start the server

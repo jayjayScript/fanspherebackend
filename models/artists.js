@@ -20,6 +20,7 @@ const artistSchema = new mongoose.Schema(
     hitSong: { type: String, default: "" },
     charity: { type: String, default: "" },
     aboutCharity: { type: String, default: "" },
+    fanClubCount: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
